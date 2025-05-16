@@ -1,18 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
     margin: 0;
     padding: 0;
+    background: url('../img/fondo-img.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #333;
+    box-sizing: border-box;
+    padding-inline: 23rem;
 }
 
+
 .contenedor {
-    max-width: 100%;
-    margin: 10% auto;
+    height: 20rem;
     background: white;
     padding: 30px;
+    margin: 20% 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin-inline: 20rem;
+    animation: fadeInSlow 2.5s ease-out forwards;
+    opacity: 0;
 }
 
 h1 {
@@ -28,6 +35,7 @@ form {
 
 input[type="text"] {
     padding: 10px;
+    text-align: center;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -79,4 +87,52 @@ button:disabled {
 
 .info-linea span {
     text-align: right;
+}
+
+h1,
+input,
+.botones {
+    animation: fadeInSlow 2s ease-out forwards;
+    opacity: 0;
+}
+
+input {
+    animation-delay: 0.5s;
+}
+
+.botones {
+    animation-delay: 1s;
+}
+
+@keyframes fadeInSlow {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-link {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-link a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #2B2D6E;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
 }

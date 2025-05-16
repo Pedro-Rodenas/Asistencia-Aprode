@@ -5,6 +5,10 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .login-container {
@@ -44,4 +48,38 @@ button {
     color: red;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.login-link {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeInTop 2s ease forwards;
+}
+
+.login-link a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+span{
+    font-size: 20px;
+}
+
+@keyframes fadeInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <div class="login-link">
+        <a href="asistencia.php">
+            <span style="color: #2B2D6E; font-weight: bold;">Regresar</span>
+        </a>
+    </div>
     <div class="login-container">
         <h2>Login Dashboard</h2>
         <form action="../auth/login.php" method="POST">

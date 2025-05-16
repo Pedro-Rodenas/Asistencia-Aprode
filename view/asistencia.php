@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    <div class="login-link">
+        <a href="login_admin.php">
+            <img src="../assets/img/logo.png" alt="" style="height: 30px; vertical-align: middle;">
+        </a>
+    </div>
+
     <div class="contenedor">
         <h1>Registro de Asistencia</h1>
 
