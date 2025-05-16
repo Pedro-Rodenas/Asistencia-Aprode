@@ -1,4 +1,6 @@
 <?php
+
+/* Redirige la solicitud POST al controlador */
 require_once __DIR__ . '/../controller/LoginController.php';
 
 $loginController = new LoginController();

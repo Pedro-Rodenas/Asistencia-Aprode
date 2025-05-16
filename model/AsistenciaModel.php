@@ -57,7 +57,8 @@ class AsistenciaModel
     public function MarcarEntrada($dni)
     {
         try {
-            $sql = "INSERT INTO asistencias (dni, fecha, hora_entrada) VALUES (?, CURDATE(), NOW())";
+            $sql = "INSERT INTO asistencias (dni, fecha, hora_entrada, estado) VALUES (?, CURDATE(), NOW(), 
+                IF(TIME(NOW()) <= '09:20:00', 'puntual', 'tardanza'))";
             $stmt = $this->pdo->prepare($sql);
             $result = $stmt->execute([$dni]);
             return $result;

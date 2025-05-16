@@ -110,24 +110,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['status' => 'error', 'message' => 'Acción o DNI inválido.']);
     exit;
 }
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
-    $data = json_decode(file_get_contents('php://input'), true);
-
-    $controller = new AsistenciaController();
-
-    if (isset($data['accion'], $data['dni'])) {
-        if ($data['accion'] === 'llegada') {
-            echo json_encode($controller->MarcarLlegada($data['dni']));
-            exit;
-        }
-        if ($data['accion'] === 'salida') {
-            echo json_encode($controller->MarcarSalida($data['dni']));
-            exit;
-        }
-    }
-
-    echo json_encode(['status' => 'error', 'message' => 'Acción o DNI inválido.']);
-    exit;
-}
