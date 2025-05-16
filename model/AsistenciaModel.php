@@ -30,7 +30,15 @@ class AsistenciaModel
     public function HorariosDelDia($dni)
     {
         /* Obtengo el dia de la semana en español */
-        $dias = ['Sunday' => 'Domingo', 'Monday' => 'Lunes', 'Tuesday' => 'Martes', 'Wednesday' => 'Miércoles', 'Thursday' => 'Jueves', 'Friday' => 'Viernes', 'Saturday' => 'Sábado'];
+        $dias = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Lunes',
+            'Tuesday' => 'Martes',
+            'Wednesday' => 'Miércoles',
+            'Thursday' => 'Jueves',
+            'Friday' => 'Viernes',
+            'Saturday' => 'Sábado'
+        ];
 
         /* l Devuelve el dia del nombre en ingles */
         $hoy = $dias[date('l')];
@@ -54,13 +62,29 @@ class AsistenciaModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    /* Metodo para marcar Entrada */
     public function MarcarEntrada($dni)
     {
         try {
-            $sql = "INSERT INTO asistencias (dni, fecha, hora_entrada, estado) VALUES (?, CURDATE(), NOW(), 
-                IF(TIME(NOW()) <= '09:20:00', 'puntual', 'tardanza'))";
+
+            $horario = $this->HorariosDelDia($dni);
+            if (!$horario) {
+                $estado = "Sin horario";
+            } else {
+                $horarlimite = date('H:i:s', strtotime($horario['hora_inicio'] . '+ 20 minutos'));
+                $horaAhora = date('H:i:s');
+
+                if ($horaAhora <= $horarlimite) {
+                    $estado = "puntual";
+                } else {
+                    $estado = "tardanza";
+                }
+            }
+
+            $sql = "INSERT INTO asistencias (dni, fecha, hora_entrada, estado) VALUES (?, CURDATE(), NOW(), ?)";
             $stmt = $this->pdo->prepare($sql);
-            $result = $stmt->execute([$dni]);
+            $result = $stmt->execute([$dni, $estado]);
+
             return $result;
         } catch (PDOException $e) {
             error_log('Error en MarcarEntrada: ' . $e->getMessage());
@@ -68,6 +92,7 @@ class AsistenciaModel
         }
     }
 
+    /* Metodo para marcar la salida */
     public function MarcarSalida($dni)
     {
         try {
@@ -79,5 +104,53 @@ class AsistenciaModel
             error_log('Error en MarcarSalida: ' . $e->getMessage());
             return false;
         }
+    }
+
+    /* Metodo para registrar con falta si no se marca asistencia */
+    public function RegistrarFalta($dni, $fecha)
+    {
+        try {
+            $sql = "INSERT INTO asistencias (dni, fecha, estado) VALUES (?,?,'falta')";
+            $stmt = $this->pdo->prepare($sql);
+            $result = $stmt->execute([$dni, $fecha]);
+            return $result;
+        } catch (PDOException $e) {
+            error_log('Error en RegistrarFalta: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /* Metodo para obtener todos los horarios de los trabajadores */
+    public function ObtenerTrabajadoresConHorario($fecha)
+    {
+        $dias = ['Sunday' => 'Domingo', 'Monday' => 'Lunes', 'Tuesday' => 'Martes', 'Wednesday' => 'Miércoles', 'Thursday' => 'Jueves', 'Friday' => 'Viernes', 'Saturday' => 'Sábado'];
+        $diaSemana = $dias[date('l', strtotime($fecha))];
+
+        /* Obtenemos todos los trabajadores habilitados que tengan horario ese día */
+        $sql = "SELECT DISTINCT u.dni FROM usuarios u INNER JOIN horarios h ON u.dni = h.dni WHERE u.id_rol = 2 AND u.habilitado = 1 AND h.dia_semana = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$diaSemana]);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    /* Metodo para verificar que trabajadores faltaron el dia */
+    public function ObtenerFaltantesDelDia($fecha)
+    {
+        $trabajadoresConHorario = $this->ObtenerTrabajadoresConHorario($fecha);
+
+        $faltantes = [];
+
+        foreach ($trabajadoresConHorario as $dni) {
+            $sql = "SELECT COUNT(*) FROM asistencias WHERE dni = ? AND fecha = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$dni, $fecha]);
+            $count = $stmt->fetchColumn();
+
+            if ($count == 0) {
+                $faltantes[] = $dni;
+            }
+        }
+
+        return $faltantes;
     }
 }
