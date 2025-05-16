@@ -6,12 +6,13 @@ body {
 }
 
 .contenedor {
-    max-width: 400px;
-    margin: 60px auto;
+    max-width: 100%;
+    margin: 10% auto;
     background: white;
     padding: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin-inline: 20rem;
 }
 
 h1 {
@@ -63,4 +64,19 @@ button:disabled {
     text-align: center;
     font-weight: bold;
     color: #333;
+}
+
+.info-linea {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 16px;
+}
+
+.info-linea strong {
+    font-weight: bold;
+}
+
+.info-linea span {
+    text-align: right;
 }

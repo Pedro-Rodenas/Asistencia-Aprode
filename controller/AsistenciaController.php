@@ -38,7 +38,14 @@ class AsistenciaController
             return [
                 'status' => 'ok',
                 'tipo' => 'entrada',
-                'nombre' => $usuario['nombre_completo']
+                'trabajador' => [
+                    'nombre' => $usuario['nombre_completo'],
+                    'dni' => $usuario['dni'],
+                    'correo' => $usuario['correo'] ?? '',
+                    'celular' => $usuario['celular'] ?? '',
+                    'puesto' => $usuario['puesto'] ?? ''
+
+                ]
             ];
         }
 
@@ -48,7 +55,13 @@ class AsistenciaController
             return [
                 'status' => 'ok',
                 'tipo' => 'salida',
-                'nombre' => $usuario['nombre_completo']
+                'trabajador' => [
+                    'nombre' => $usuario['nombre_completo'],
+                    'dni' => $usuario['dni'],
+                    'correo' => $usuario['correo'] ?? '',
+                    'celular' => $usuario['celular'] ?? '',
+                    'puesto' => $usuario['puesto'] ?? ''
+                ]
             ];
         }
 
