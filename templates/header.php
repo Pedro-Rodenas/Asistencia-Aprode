@@ -14,7 +14,6 @@
             <a href="dashboard.php">Inicio</a>
             <a href="ver_asistencia.php">Asistencia</a>
             <a href="usuarios.php">Usuarios</a>
-            <a href="estadísticas.php">Estadísticas</a>
         </nav>
     </div>
 

@@ -80,14 +80,47 @@ $usuario = $_SESSION['user']['nombre'] ?? 'Invitado';
             </section>
         </section>
 
-        <section class="c-p-users">
-            
+        <section class="c-p-end-stads">
+            <div class="c-users">
+                <h2>Lista de Usuarios</h2>
+                <table id="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Celular</th>
+                            <th>Puesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se insertan los usuarios desde JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="c-horario">
+                <h2>Horarios de los usuarios</h2>
+                <table id="tabla-horarios">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Días</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="../../assets/js/grafico_horas.js"></script>
     <script src="../../assets/js/grafico_dona.js"></script>
     <script src="../../assets/js/grafico_tardanza.js"></script>
+    <script src="../../assets/js/usuarios.js"></script>
+    <script src="../../assets/js/horarios.js"></script>
 </body>
 
 </html>

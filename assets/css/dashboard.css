@@ -80,6 +80,15 @@ main {
     gap: 1rem;
 }
 
+.c-grafico-completo {
+    background-color: #ffff;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
 .c-grafico-3 {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -91,13 +100,14 @@ main {
 .graficos-3 {
     background-color: #f4f4f4;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    text-align: center  ;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .c-grafico-3 .graficos-3:nth-child(3) {
@@ -106,4 +116,117 @@ main {
 
 #grafico-dona-asistencia {
     width: 100%;
+}
+
+
+/* Ultimo grafico */
+
+.c-p-end-stads {
+    padding-inline: 2.5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-block: 5rem;
+    gap: 2rem;
+}
+
+.c-users {
+    background-color: #ffff;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.c-horario {
+    background-color: #ffff;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Tabla general */
+#tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-family: sans-serif;
+}
+
+/* Cabecera con estilo azul degradado */
+#tabla-usuarios thead {
+    background-image: linear-gradient(135deg, #7eb3af, #56837f);
+    color: #fff;
+}
+
+#tabla-usuarios thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+#tabla-usuarios tbody td {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+#tabla-usuarios tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#tabla-usuarios tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Título */
+.c-horario h2 {
+    margin-bottom: 1rem;
+    color: #2B2D6E;
+}
+
+/* Tabla general */
+#tabla-horarios {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tabla-horarios thead {
+    background-image: linear-gradient(135deg, #7cfff4, #7eb3af);
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#tabla-horarios thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#tabla-horarios tbody td {
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+#tabla-horarios tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#tabla-horarios tbody tr:last-child {
+    border-bottom: none;
+}
+
+#tabla-horarios tbody tr:hover {
+    background-color: #f5f5f5;
+    cursor: default;
 }
