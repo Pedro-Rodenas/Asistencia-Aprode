@@ -1,5 +1,57 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+main {
+    margin-left: 20%;
+}
+
+.c-asistencias {
+    width: 100%;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.c-asistencias h2 {
+    margin-bottom: 1rem;
+    color: #2B2D6E;
+}
+
+/* Tabla general */
+#tabla-asistencias {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#tabla-asistencias thead {
+    background-image: linear-gradient(135deg, #7cfff4, #7eb3af);
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#tabla-asistencias thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#tabla-asistencias tbody td {
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+#tabla-asistencias tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#tabla-asistencias tbody tr:hover {
+    background-color: #f9f9f9;
 }

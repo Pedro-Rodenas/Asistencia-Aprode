@@ -18,6 +18,28 @@ $usuario = $_SESSION['user']['nombre'] ?? 'Invitado';
     <?php
     include '../../templates/header.php';
     ?>
+
+    <main>
+        <div class="c-asistencias">
+            <h2>Registro de Asistencias</h2>
+            <table id="tabla-asistencias">
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Hora de entrada</th>
+                        <th>Hora de salida</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+
+    </main>
+    <script src="../../assets/js/ver_asistencia.js"></script>
 </body>
 
 </html>
