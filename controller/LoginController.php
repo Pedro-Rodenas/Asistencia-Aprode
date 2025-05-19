@@ -35,7 +35,6 @@ class LoginController
             $_SESSION['user'] = [
                 'dni' => $user['dni'],
                 'nombre' => $user['nombre_completo'],
-                // 'rol' => $user['rol'] // si tienes el campo id_rol
             ];
             header('Location: ../view/dashboard/dashboard.php');
             exit;

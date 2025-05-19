@@ -1,78 +1,76 @@
-  .sidebar {
-      position: fixed;
-      /* Hace que el sidebar quede fijo */
-      top: 0;
-      left: 0;
-      width: 25vw;
-      height: 100vh;
-      background-color: #222;
-      color: #fff;
-      padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-family: Arial, sans-serif;
-      overflow-y: auto;
-      /* Para que el contenido interno se pueda scrollear si es necesario */
-  }
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    text-align: center;
+}
 
-  .header-top h2 {
-      margin-bottom: 20px;
-  }
+.header-top h2 {
+    margin-bottom: 20px;
+}
 
-  .logo-usuario {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 40px;
-  }
+.logo-usuario {
+    gap: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+}
 
-  .logo {
-      width: 50px;
-      height: auto;
-  }
+.logo {
+    width: 50px;
+    height: auto;
+}
 
-  .bienvenido {
-      font-weight: bold;
-      font-size: 1.1rem;
-  }
+.bienvenido {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
 
-  .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-  }
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-  .menu a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.2s ease;
-  }
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
 
-  .menu a:hover {
-      background-color: #444;
-  }
+.menu a:hover {
+    background-color: #444;
+}
 
-  .logout-form {
-      text-align: center;
-  }
+.logout-form {
+    text-align: center;
+}
 
-  .logout-form button {
-      background-color: #e74c3c;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 4px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s ease;
-  }
+.logout-form button {
+    background-color: #e74c3c;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
 
-  .logout-form button:hover {
-      background-color: #c0392b;
-  }
+.logout-form button:hover {
+    background-color: #c0392b;
+}
