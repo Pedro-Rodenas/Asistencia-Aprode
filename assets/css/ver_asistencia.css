@@ -55,3 +55,15 @@ main {
 #tabla-asistencias tbody tr:hover {
     background-color: #f9f9f9;
 }
+
+label[for="filtro-fecha"],
+#filtro-fecha {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#filtro-fecha {
+    padding: 0.4rem;
+    font-size: 1rem;
+}

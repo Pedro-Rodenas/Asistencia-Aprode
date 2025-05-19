@@ -20,8 +20,12 @@ $usuario = $_SESSION['user']['nombre'] ?? 'Invitado';
     ?>
 
     <main>
+
         <div class="c-asistencias">
             <h2>Registro de Asistencias</h2>
+            
+            <label for="filtro-fecha">Filtrar por fecha:</label>
+            <input type="date" id="filtro-fecha">
             <table id="tabla-asistencias">
                 <thead>
                     <tr>
