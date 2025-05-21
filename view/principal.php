@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Bienvenidos - Aprode Perú</title>
     <link rel="stylesheet" href="../assets/css/welcome.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 
         setTimeout(() => {
             window.location.href = 'asistencia.php';
-        }, 15000);
+        }, 4000);
     </script>
 
 </body>
