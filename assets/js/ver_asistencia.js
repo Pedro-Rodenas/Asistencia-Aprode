@@ -4,17 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabla = document.querySelector("#tabla-asistencias tbody");
     const filtroFecha = document.getElementById("filtro-fecha");
 
-    // Obtener la fecha de hoy en formato YYYY-MM-DD
     const hoy = new Date().toISOString().split("T")[0];
     filtroFecha.value = hoy;
 
-    // Cargar asistencias
     fetch("../../api/asistencias.php")
         .then(response => response.json())
         .then(data => {
             datosOriginales = data;
 
-            // Filtrar por la fecha de hoy
             const filtrados = datosOriginales.filter(item => item.fecha === hoy);
             renderizarTabla(filtrados);
         })
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error al cargar asistencias:", error);
         });
 
-    // Escuchar cambios en el input de fecha
     filtroFecha.addEventListener("change", () => {
         const fechaSeleccionada = filtroFecha.value;
         if (!fechaSeleccionada) {
