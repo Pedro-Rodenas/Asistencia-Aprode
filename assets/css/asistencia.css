@@ -136,3 +136,7 @@ input {
     font-weight: bold;
     font-family: 'Segoe UI', sans-serif;
 }
+
+.login-link i{
+    font-size: 30px;
+}

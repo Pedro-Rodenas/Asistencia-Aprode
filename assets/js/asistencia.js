@@ -3,7 +3,6 @@ const btnLlegada = document.getElementById('btn-llegada');
 const btnSalida = document.getElementById('btn-salida');
 const respuestaDiv = document.getElementById('respuesta');
 
-// Verificación automática al escribir el DNI (cuando tiene 8 dígitos)
 dniInput.addEventListener('input', () => {
     const dni = dniInput.value.trim();
     if (dni.length === 8) {
@@ -14,7 +13,6 @@ dniInput.addEventListener('input', () => {
     }
 });
 
-// Función para verificar si el trabajador puede marcar asistencia
 async function verificarDni(dni) {
     try {
         const res = await fetch(`../controller/AsistenciaController.php?action=verificar&dni=${dni}`);
@@ -31,12 +29,11 @@ async function verificarDni(dni) {
         }
     } catch (error) {
         console.error("Error al verificar DNI:", error);
-        mostrarMensaje("Error de conexión.");
+        mostrarMensaje("Ya se registro la asistencia del día");
         deshabilitarBotones();
     }
 }
 
-// Muestra los datos del trabajador
 function mostrarDatosTrabajador(t) {
     respuestaDiv.innerHTML = `
         <div class="info-linea"><strong>Bienvenido:</strong><span>${t.nombre}</span></div>
@@ -47,7 +44,6 @@ function mostrarDatosTrabajador(t) {
     `;
 }
 
-// Actualiza el estado de los botones según la asistencia
 function actualizarBotones(tipo) {
     if (tipo === 'entrada') {
         btnLlegada.disabled = false;
@@ -61,19 +57,16 @@ function actualizarBotones(tipo) {
     }
 }
 
-// Limpia los datos mostrados y desactiva botones
 function limpiarInterfaz() {
     respuestaDiv.innerHTML = '';
     deshabilitarBotones();
 }
 
-// Desactiva ambos botones
 function deshabilitarBotones() {
     btnLlegada.disabled = true;
     btnSalida.disabled = true;
 }
 
-// Muestra un mensaje simple en el div de respuesta
 function mostrarMensaje(mensaje) {
     respuestaDiv.innerText = mensaje;
 }

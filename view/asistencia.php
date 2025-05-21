@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <title>Registro de Asistencia</title>
     <link rel="stylesheet" href="../assets/css/asistencia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div class="login-link">
         <a href="login_admin.php">
-            <img src="../assets/img/logo.png" alt="" style="height: 30px; vertical-align: middle;">
+            <i class="fas fa-user-shield"></i>
         </a>
     </div>
+
 
     <div class="contenedor">
         <h1>Registro de Asistencia</h1>
