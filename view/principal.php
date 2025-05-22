@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="stars" id="star-container"></div>
+    <div class="stars" id="estrella-container"></div>
 
     <div class="content">
         <div class="title">Bienvenidos al sistema de asistencia de Aprode Perú</div>
@@ -18,7 +18,7 @@
     </div>
 
     <script>
-        const container = document.getElementById('star-container');
+        const container = document.getElementById('estrella-container');
         const totalStars = 50;
 
         for (let i = 0; i < totalStars; i++) {
