@@ -155,4 +155,31 @@ class AsistenciaModel
 
         return $faltantes;
     }
+
+    /* Metodo para traer todas las asistencias con estado en falta */
+    public function ObtenerFaltas($fecha = null)
+    {
+        $sql = "SELECT a.*, u.nombre_completo FROM asistencias a 
+            JOIN usuarios u ON a.dni = u.dni
+            WHERE a.estado = 'falta'";
+
+        if ($fecha) {
+            $sql .= " AND a.fecha = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$fecha]);
+        } else {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /* Metodo para justificar la falta */
+    public function JustificarFalta($dni, $fecha)
+    {
+        $sql = "UPDATE asistencias SET estado = 'Justificada' WHERE dni = ? AND fecha = ? AND estado = 'falta'";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$dni, $fecha]);
+    }
 }

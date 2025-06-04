@@ -14,6 +14,7 @@
             <a href="dashboard.php">Inicio</a>
             <a href="ver_asistencia.php">Asistencia</a>
             <a href="usuarios.php">Usuarios</a>
+            <a href="faltas_registradas.php">Justificar Falta</a>
         </nav>
     </div>
 

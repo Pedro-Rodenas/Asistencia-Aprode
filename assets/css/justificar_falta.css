@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    color: #2B2D6E;
+    margin-left: 20%;
+}
+
+.c-justificaciones {
+    padding: 1rem;
+}
+
+table {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #D4AF37;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button.btnJustificar {
+    background-color: #2B2D6E;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.btnJustificar:hover {
+    background-color: #1f234f;
+}
