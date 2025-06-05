@@ -31,7 +31,7 @@ class FaltasController
     }
 }
 
-/* === Peticiones AJAX === */
+/* Peticiones AJAX */
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $ctrl = new FaltasController();

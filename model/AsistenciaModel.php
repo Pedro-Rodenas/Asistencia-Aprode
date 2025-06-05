@@ -73,10 +73,13 @@ class AsistenciaModel
             if (!$horario) {
                 $estado = "Sin horario";
             } else {
-                $horarlimite = date('H:i:s', strtotime($horario['hora_inicio'] . '+ 20 minutos'));
-                $horaAhora = date('H:i:s');
+                $horaInicio = new DateTime($horario['hora_inicio']);
+                $horaLimite = clone $horaInicio;
+                $horaLimite->modify('+20 minutes');
 
-                if ($horaAhora <= $horarlimite) {
+                $horaActual = new DateTime();
+
+                if ($horaActual <= $horaLimite) {
                     $estado = "puntual";
                 } else {
                     $estado = "tardanza";
