@@ -182,4 +182,27 @@ class AsistenciaModel
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$dni, $fecha]);
     }
+
+    /* Obtener Trabajadores Activos*/
+    public function ObtenerTrabajadoresActivos()
+    {
+        $sql = "SELECT dni, nombre_completo, puesto FROM usuarios WHERE habilitado = '1'";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $trabajadores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $trabajadores;
+    }
+
+
+    /* Obtener trabajadores por su dni */
+    public function ObtenerAsistenciasPorDni($dni)
+    {
+        $sql = "SELECT dni,fecha, hora_entrada, hora_salida, estado FROM asistencias WHERE dni = ? ORDER BY fecha DESC";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$dni]);
+        $asistencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $asistencias;
+    }
 }

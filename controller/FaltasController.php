@@ -19,19 +19,45 @@ class FaltasController
     {
         return $this->model->JustificarFalta($dni, $fecha);
     }
+
+    public function listarTrabajadores()
+    {
+        return $this->model->ObtenerTrabajadoresActivos();
+    }
+
+    public function listarAsistenciasPorTrabajador($dni)
+    {
+        return $this->model->ObtenerAsistenciasPorDni($dni);
+    }
 }
 
-/* Peticiones en AJAX */
+/* === Peticiones AJAX === */
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accion']) && $_GET['accion'] === 'listar') {
-    header('Content-Type: application/json');
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $ctrl = new FaltasController();
 
-    $fecha = $_GET['fecha'] ?? null;
+    if (isset($_GET['accion'])) {
+        switch ($_GET['accion']) {
+            case 'listar':
+                header('Content-Type: application/json');
+                $fecha = $_GET['fecha'] ?? null;
+                echo json_encode($ctrl->listarFaltas($fecha));
+                exit;
 
-    $faltas = $ctrl->listarFaltas($fecha);
-    echo json_encode($faltas);
-    exit;
+            case 'trabajadores':
+                header('Content-Type: application/json');
+                echo json_encode($ctrl->listarTrabajadores());
+                exit;
+
+            case 'asistencias':
+                if (isset($_GET['dni'])) {
+                    header('Content-Type: application/json');
+                    echo json_encode($ctrl->listarAsistenciasPorTrabajador($_GET['dni']));
+                    exit;
+                }
+                break;
+        }
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'justificar') {
